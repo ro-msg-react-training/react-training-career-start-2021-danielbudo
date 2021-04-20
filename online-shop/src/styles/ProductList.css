@@ -1,0 +1,18 @@
+.productList{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1{
+    margin-left: 17%;
+}
+
+body{
+    background-color:blanchedalmond;
+}
