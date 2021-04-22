@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProductList from './components/ProductList';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import StandardTheme from './themes/StandardTheme';
 
 function App() {
   return (
-    <ProductList/>
+    <CssBaseline>
+      <ThemeProvider theme={StandardTheme}>
+        <ProductList />
+      </ThemeProvider>
+    </CssBaseline>
   );
 }
 
