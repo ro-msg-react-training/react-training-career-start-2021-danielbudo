@@ -1,16 +1,14 @@
-import React from "react";
-import "./App.css";
 import ProductList from "./components/ProductList";
 import ProductDetailedView from "./components/ProductDetailedView";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
-import StandardTheme from "./themes/StandardTheme";
+import CustomTheme from "./themes/CustomTheme";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Cart from "./components/Cart";
-// import ProductItem from "./components/ProductItem";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
-    <ThemeProvider theme={StandardTheme}>
+    <ThemeProvider theme={CustomTheme}>
       <CssBaseline>
         <BrowserRouter>
           <Switch>
@@ -20,7 +18,7 @@ function App() {
             </Route>
             <Route path="/products" component={ProductList} />
             <Route path="/cart" component={Cart} />
-            <Route path="/" render={() => <div>404: Page not found</div>} />
+            <Route path="*" component={Error404} />
           </Switch>
         </BrowserRouter>
       </CssBaseline>

@@ -2,7 +2,7 @@ import ProductItem from "./ProductItem";
 import { useProductListStyles } from "../styles/ProductListStyle";
 import { Grid, Typography } from "@material-ui/core";
 
-let theProducts = [
+export let theProducts = [
   {
     id: 1,
     name: "Blue Jeans",

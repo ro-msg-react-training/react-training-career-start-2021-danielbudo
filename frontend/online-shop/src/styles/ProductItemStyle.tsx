@@ -1,13 +1,10 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useProductItemStyles = makeStyles({
+export const useProductItemStyles = makeStyles((CustomTheme) => ({
   productDetail: {
     verticalAlign: "middle",
     display: "inline",
     fontSize: "17px",
-    // paddingBottom: "15px",
-    // marginBottom: "15px",
-    // border: "1px solid",
   },
 
   imageContainer: {
@@ -21,14 +18,14 @@ export const useProductItemStyles = makeStyles({
   },
 
   category: {
-    fontFamily: "Oswald",
+    fontFamily: CustomTheme.typography.fontFamily,
     fontVariant: "Extra-light 200",
     fontSize: "80%",
   },
   product: {
     height: "inherit",
     flexBasis: "16%",
-    color: "#ffffff",
+    color: CustomTheme.palette.primary.main,
     marginLeft: "2%",
     marginRight: "2%",
     marginBotton: "7%",
@@ -45,4 +42,4 @@ export const useProductItemStyles = makeStyles({
       border: "2px solid #3B7EFF",
     },
   },
-});
+}));

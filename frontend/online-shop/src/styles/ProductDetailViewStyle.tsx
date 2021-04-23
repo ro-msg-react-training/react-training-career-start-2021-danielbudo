@@ -1,10 +1,12 @@
 import { makeStyles } from "@material-ui/core";
+import CustomTheme from "../themes/CustomTheme";
 
 export const useProductDetailViewStyles = makeStyles({
-  everything: {
+  wrapper: {
     textAlign: "center",
     marginTop: "5%",
     display: "block",
+    color: CustomTheme.palette.secondary.main,
   },
   title: {
     fontSize: "20px",
@@ -12,7 +14,7 @@ export const useProductDetailViewStyles = makeStyles({
     marginBottom: "0.5%",
     display: "block !important",
   },
-  image_product: {
+  imageProduct: {
     display: "table",
     clear: "both",
     float: "left",
@@ -41,5 +43,7 @@ export const useProductDetailViewStyles = makeStyles({
   },
   button: {
     marginTop: "1%",
+    color: CustomTheme.palette.secondary.main,
+    backgroundColor: CustomTheme.palette.primary.main,
   },
 });

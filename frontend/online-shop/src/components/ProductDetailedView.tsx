@@ -75,15 +75,13 @@ function getProduct(id: number): ProductProps | undefined {
 
 function ProductDetailedView() {
   const classes = useProductDetailViewStyles();
-  let product;
   const { id } = useParams<{ id?: string | undefined }>();
-  if (id !== undefined) {
-    product = getProduct(parseInt(id));
-  }
+  const product = !!id ? getProduct(parseInt(id)) : undefined;
+
   if (product !== undefined) {
     return (
-      <Grid container className={classes.everything}>
-        <Grid container className={classes.image_product}>
+      <Grid container className={classes.wrapper}>
+        <Grid container className={classes.imageProduct}>
           <Grid container className={classes.imageContainer}>
             <Grid item>
               <img

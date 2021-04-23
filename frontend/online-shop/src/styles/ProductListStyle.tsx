@@ -12,7 +12,6 @@ export const useProductListStyles = makeStyles({
     marginRight: "10%",
     paddingBottom: "3%",
   },
-
   h1: {
     marginLeft: "11.5%",
     fontSize: "50px",
