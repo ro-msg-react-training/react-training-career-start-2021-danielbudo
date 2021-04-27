@@ -42,6 +42,8 @@ export const useProductDetailViewStyles = makeStyles({
     },
   },
   button: {
+    marginLeft: "3px",
+    marginRight: "8px",
     marginTop: "1%",
     color: CustomTheme.palette.secondary.main,
     backgroundColor: CustomTheme.palette.primary.main,

@@ -9,6 +9,7 @@ const url: string = "http://localhost:4000";
 
 function ProductList() {
   const classes = useProductListStyles();
+  const [loading, setLoading] = useState(true);
 
   /*
   Default product list (until the products are loaded,
@@ -58,7 +59,7 @@ function ProductList() {
       );
       setProductList(response.data);
     }
-    get();
+    get().then(() => setLoading(false));
   });
 
   /*
@@ -70,12 +71,18 @@ function ProductList() {
   ));
   return (
     <div>
-      <Typography className={classes.h1} component={"div"}>
-        Products
-      </Typography>
-      <div className={classes.productList}>
-        <Grid container>{products}</Grid>
-      </div>
+      {loading ? (
+        <p>Loading items ...</p>
+      ) : (
+        <div>
+          <Typography className={classes.h1} component={"div"}>
+            Products
+          </Typography>
+          <div className={classes.productList}>
+            <Grid container>{products}</Grid>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
