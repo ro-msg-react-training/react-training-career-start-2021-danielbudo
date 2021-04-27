@@ -2,6 +2,7 @@ import { Typography, Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid/Grid";
 import { useParams, Link } from "react-router-dom";
 import { useProductDetailViewStyles } from "../styles/ProductDetailViewStyle";
+import ProductDetails from "../models/ProductDetails";
 
 let theProducts = [
   {
@@ -60,16 +61,7 @@ let theProducts = [
   },
 ];
 
-interface ProductProps {
-  id: number;
-  name: string;
-  category: string;
-  price: number;
-  imageUrl: string;
-  description: string;
-}
-
-function getProduct(id: number): ProductProps | undefined {
+function getProduct(id: number): ProductDetails | undefined {
   return theProducts.find((x) => x.id === id);
 }
 
@@ -86,7 +78,7 @@ function ProductDetailedView() {
             <Grid item>
               <img
                 src={product.imageUrl}
-                alt="your product"
+                alt="Your Product"
                 className={classes.image}
               />
             </Grid>

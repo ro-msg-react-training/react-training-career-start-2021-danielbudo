@@ -2,29 +2,14 @@ import { Button, Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { useProductItemStyles } from "../styles/ProductItemStyle";
 import { Link } from "react-router-dom";
+import Product from "../models/Product";
 
-interface ProductProps {
-  id: number;
-  name: string;
-  category: string;
-  price: number;
-  imageUrl: string;
-  description: string;
-}
-
-function ProductItem(props: ProductProps) {
+function ProductItem(props: Product) {
   const classes = useProductItemStyles();
   let id: number = props.id;
   let address: string = "/products/" + id.toString();
   return (
     <Grid container className={classes.product}>
-      <Grid item className={classes.imageContainer}>
-        <img
-          src={props.imageUrl}
-          className={classes.image}
-          alt="Your product."
-        />
-      </Grid>
       <Grid item>
         <Typography className={classes.productDetail} paragraph>
           {props.name}
