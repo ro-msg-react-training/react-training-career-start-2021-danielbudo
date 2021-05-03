@@ -4,6 +4,8 @@ import { Grid, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import Product from "../models/Product";
+import ShoppingCartIcon from "./ShoppingCartIcon";
+import { store } from "../stores/store";
 
 const url: string = "http://localhost:4000";
 
@@ -60,7 +62,7 @@ function ProductList() {
       setProductList(response.data);
     }
     get().then(() => setLoading(false));
-  });
+  }, []);
 
   /*
   Create a variable where the data from the product list is mapped to
@@ -69,15 +71,21 @@ function ProductList() {
   let products = productList.map((product: Product, index: number) => (
     <ProductItem key={index} {...product} />
   ));
+  console.log("Pr List:" + store.getState().cart.cart);
   return (
     <div>
       {loading ? (
         <p>Loading items ...</p>
       ) : (
         <div>
-          <Typography className={classes.h1} component={"div"}>
-            Products
-          </Typography>
+          <Grid container className="header">
+            <Typography className={classes.h1} component={"div"}>
+              Products
+            </Typography>
+            <div className={classes.shoppingCartIcon}>
+              <ShoppingCartIcon />
+            </div>
+          </Grid>
           <div className={classes.productList}>
             <Grid container>{products}</Grid>
           </div>
