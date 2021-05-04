@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { store } from "../stores/store";
 import CartItemI from "../models/CartItem";
 import CartItem from "./CartItem";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
+import { useCartStyles } from "../styles/CartStyle";
 
 function Cart() {
+  const classes = useCartStyles();
   const [itemList, setItemList] = useState([
     {
       id: 999,
@@ -24,10 +26,12 @@ function Cart() {
   ));
 
   return (
-    <div>
-      Shopping Cart
-      <Grid container>{items}</Grid>
-      <Grid container>
+    <div className={classes.wrapper}>
+      <Typography className={classes.title}>Shopping Cart</Typography>
+      <Grid container className={classes.product}>
+        {items}
+      </Grid>
+      <Grid container className={classes.button}>
         <Button variant="outlined">Checkout</Button>
       </Grid>
     </div>

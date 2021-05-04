@@ -72,7 +72,7 @@ function ProductList() {
   let products = productList.map((product: Product, index: number) => (
     <ProductItem key={index} {...product} />
   ));
-  console.log("Pr List:" + store.getState().cart.cart);
+  console.log("Pr List:" + store.getState().cart.cart.toString());
   return (
     <div>
       {loading ? (

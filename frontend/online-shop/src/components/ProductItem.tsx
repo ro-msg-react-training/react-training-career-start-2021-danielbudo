@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { useProductItemStyles } from "../styles/ProductItemStyle";
 import { Link } from "react-router-dom";

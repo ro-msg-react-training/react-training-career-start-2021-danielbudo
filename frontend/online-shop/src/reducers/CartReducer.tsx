@@ -12,13 +12,7 @@ const initialState: CartState = {
 const CartReducer = (state = initialState, action: CartActions): CartState => {
   console.log(action);
   switch (action.type) {
-    case CartActionsEnum.ADD_PRODDUCT_TO_CART_REQUEST:
-      console.log("reducer_request");
-      return {
-        ...state,
-      };
-    case CartActionsEnum.ADD_PRODDUCT_TO_CART_SUCCESS:
-      console.log("reducer_success");
+    case CartActionsEnum.ADD_PRODUCT_TO_CART_SUCCESS:
       const newCart = state.cart;
       newCart.push(action.payload);
       return {
@@ -26,7 +20,6 @@ const CartReducer = (state = initialState, action: CartActions): CartState => {
         cart: newCart,
       };
     default:
-      console.log("reducer_default (error)");
       return state;
   }
 };

@@ -6,10 +6,9 @@ import ProductDetails from "../models/ProductDetails";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useDispatch } from "react-redux";
-import { addProductToCartRequest } from "../actions/CartActions";
-import { store } from "../stores/store";
 import { deleteProduct } from "../services/deleteProduct";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import { addProductToCartSuccess } from "../actions/CartActions";
 
 const url: string = "http://localhost:4000";
 
@@ -54,7 +53,6 @@ function ProductDetailedView() {
   const product = !!id ? productDetails : undefined;
 
   if (product !== undefined) {
-    let localId = product.id;
     return (
       <Grid container className={classes.wrapper}>
         <Link to="/products">
@@ -90,18 +88,17 @@ function ProductDetailedView() {
                 <Typography>Price: {product.price} €</Typography>
               </Grid>
             </Grid>
-            {/* <Link to="/cart"> */}
-            <Button
-              variant="outlined"
-              className={classes.button}
-              onClick={() => {
-                dispatch(addProductToCartRequest(localId));
-                console.log(store.getState().cart.cart);
-              }}
-            >
-              Add to cart
-            </Button>
-            {/* </Link> */}
+            <Link to="/cart">
+              <Button
+                variant="outlined"
+                className={classes.button}
+                onClick={() => {
+                  dispatch(addProductToCartSuccess(product));
+                }}
+              >
+                Add to cart
+              </Button>
+            </Link>
             <Link to="/products">
               <Button
                 variant="outlined"
