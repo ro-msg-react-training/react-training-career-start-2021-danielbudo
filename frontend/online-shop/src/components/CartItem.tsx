@@ -9,7 +9,7 @@ function CartItem(props: CartItemI) {
       <Grid item>
         <Link to={url}>
           <li>
-            {props.name} ({props.category}) | {props.price} $
+            {props.name} ({props.category}) | {props.price} €
           </li>
         </Link>
       </Grid>
