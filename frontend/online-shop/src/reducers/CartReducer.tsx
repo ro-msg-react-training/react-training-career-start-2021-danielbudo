@@ -19,9 +19,11 @@ const CartReducer = (state = initialState, action: CartActions): CartState => {
       };
     case CartActionsEnum.ADD_PRODDUCT_TO_CART_SUCCESS:
       console.log("reducer_success");
+      const newCart = state.cart;
+      newCart.push(action.payload);
       return {
         ...state,
-        cart: action.payload,
+        cart: newCart,
       };
     default:
       console.log("reducer_default (error)");

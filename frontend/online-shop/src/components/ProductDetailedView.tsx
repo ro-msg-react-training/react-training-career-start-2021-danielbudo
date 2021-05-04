@@ -1,14 +1,15 @@
-import { Typography, Button } from "@material-ui/core";
+import { Typography, Button, IconButton } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid/Grid";
 import { useParams, Link } from "react-router-dom";
 import { useProductDetailViewStyles } from "../styles/ProductDetailViewStyle";
 import ProductDetails from "../models/ProductDetails";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useDispatch } from "react-redux";
 import { addProductToCartRequest } from "../actions/CartActions";
 import { store } from "../stores/store";
 import { deleteProduct } from "../services/deleteProduct";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 
 const url: string = "http://localhost:4000";
 
@@ -56,6 +57,11 @@ function ProductDetailedView() {
     let localId = product.id;
     return (
       <Grid container className={classes.wrapper}>
+        <Link to="/products">
+          <IconButton>
+            <HomeOutlinedIcon />
+          </IconButton>
+        </Link>
         {loading ? (
           <p>Loading item...</p>
         ) : (
@@ -75,7 +81,7 @@ function ProductDetailedView() {
                 <Typography>Name: {product.name}</Typography>
               </Grid>
               <Grid item>
-                <Typography>Categoty: {product.category}</Typography>
+                <Typography>Category: {product.category}</Typography>
               </Grid>
               <Grid item>
                 <Typography>Description: {product.description}</Typography>

@@ -1,6 +1,7 @@
 import ProductItem from "./ProductItem";
 import { useProductListStyles } from "../styles/ProductListStyle";
 import { Grid, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import Product from "../models/Product";
@@ -66,7 +67,7 @@ function ProductList() {
 
   /*
   Create a variable where the data from the product list is mapped to
-  a JSX object of type 'ProductItem'. The 
+  a JSX object of type 'ProductItem'
   */
   let products = productList.map((product: Product, index: number) => (
     <ProductItem key={index} {...product} />
@@ -83,7 +84,9 @@ function ProductList() {
               Products
             </Typography>
             <div className={classes.shoppingCartIcon}>
-              <ShoppingCartIcon />
+              <Link to="/cart">
+                <ShoppingCartIcon />
+              </Link>
             </div>
           </Grid>
           <div className={classes.productList}>

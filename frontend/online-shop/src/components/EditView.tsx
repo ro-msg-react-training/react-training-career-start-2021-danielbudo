@@ -20,20 +20,20 @@ function EditView() {
     description: "Cool stuff",
   });
 
-  const product = data;
-
+  // Set the data to the actual valued of the product
   function getProduct() {
     getProductById(parseInt(id)).then((response) => {
       setData(response);
     });
   }
 
+  // Apply getProduct()
   useEffect(() => {
     getProduct();
   }, []);
 
   function updateItem() {
-    updateProduct(data.id, product);
+    updateProduct(data.id, data);
   }
 
   return (
@@ -49,28 +49,34 @@ function EditView() {
         <input
           type="text"
           value={data.name}
-          onChange={(event) => (product.name = event.target.value)}
+          onChange={(event) => setData({ ...data, name: event.target.value })}
         ></input>
         <br></br>
         <label>Category: </label>
         <input
           type="text"
           value={data.category}
-          onChange={(event) => (product.category = event.target.value)}
+          onChange={(event) =>
+            setData({ ...data, category: event.target.value })
+          }
         />
         <br></br>
         <label>Description: </label>
         <input
           type="text"
           value={data.description}
-          onChange={(event) => (product.description = event.target.value)}
+          onChange={(event) =>
+            setData({ ...data, description: event.target.value })
+          }
         />
         <br></br>
         <label>Price: </label>
         <input
           type="text"
           value={data.price}
-          onChange={(event) => (product.price = parseInt(event.target.value))}
+          onChange={(event) =>
+            setData({ ...data, price: parseInt(event.target.value) })
+          }
         />
       </form>
       <Link to={productAddress}>
